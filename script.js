@@ -7,6 +7,7 @@ const getResult = document.getElementById('result')
 const reset = document.getElementById('reset')
 
 
+
 let counter = 10
 timer.innerHTML = counter;
 
@@ -20,6 +21,7 @@ let rightAnswers = [];
 start.addEventListener('click',() =>{
    start.classList.add('d-none')
    timer.classList.remove('d-none')
+   randomNumbers.classList.remove('d-none')
   // 1. creo il conto alla rovescia
   const interval = setInterval (()=>{
    // a ogni intervallo il mio counter si decrementa  
@@ -31,7 +33,7 @@ start.addEventListener('click',() =>{
     timer.classList.add('d-none')
     randomNumbers.classList.add('d-none')
     userAnswer.classList.remove('d-none')
-    
+    send.classList.remove('d-none')
    }
   
   }, 1000)
@@ -58,7 +60,7 @@ const numE = (document.getElementById('numE')).value;
 userNumbers = [parseInt(numA), parseInt(numB), parseInt(numC), parseInt(numD), parseInt(numE)];
 
 for (let i = 0; i<=5; i++){
-
+  
   if (pcNumbers.includes(userNumbers[i])===true){
     counterRightAnswers++
   }
@@ -66,12 +68,28 @@ for (let i = 0; i<=5; i++){
 }
 
 userAnswer.classList.add('d-none')
-
+send.classList.add('d-none')
 getResult.classList.remove('d-none')
 reset.classList.remove('d-none')
-getResult.innerHTML+= `${counterRightAnswers} numeri!`
-    
+getResult.innerHTML+= `Hai indoviato ${counterRightAnswers} numeri!`
+
 })
 
+//aggiungo l'evento al tarso restart game
 
+reset.addEventListener('click', resetGame)
+
+function resetGame(){
+pcNumbers = [];
+userNumbers = [];
+rightAnswers = [];
+counter = 10
+counterRightAnswers = 0
+getResult.innerHTML = ' '
+document.getElementById('answer').reset()
+start.classList.remove('d-none')
+getResult.classList.add('d-none')
+reset.classList.add('d-none')
+
+}
 

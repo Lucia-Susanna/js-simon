@@ -7,25 +7,25 @@
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css' integrity='sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==' crossorigin='anonymous'/>
   <title>Simon Says</title>
 </head>
-<body class="green">
+<body class="green fs-5">
   <div class="container d-flex flex-column justify-content-center align-items-center">
     <button id="start" class="btn btn-warning">START GAME</button>
 
-    <div id="timer" class="d-none"></div>
-    <p id="random-numbers"></p>  
-    <form action="#" id="answer" class="d-none">
-      <input type="number" min="1" max="50" id="numA">
-      <input type="number" min="1" max="50" id="numB">
-      <input type="number" min="1" max="50" id="numC">
-      <input type="number" min="1" max="50" id="numD">
-      <input type="number" min="1" max="50" id="numE">
-      <button id="send">Send</button>
-      
+    <div id="timer" class="d-none my-4 bigger"></div>
+    <p id="random-numbers" class="bg-primary-subtle d-none p-4 rounded-pill"></p>  
+
+    <form action="#" id="answer" class="d-flex d-none">
+      <input type="number" min="1" max="50" id="numA" class="form-control rounded-pill text-center" required>
+      <input type="number" min="1" max="50" id="numB" class="form-control rounded-pill text-center" required>
+      <input type="number" min="1" max="50" id="numC" class="form-control rounded-pill text-center" required>
+      <input type="number" min="1" max="50" id="numD" class="form-control rounded-pill text-center" required>
+      <input type="number" min="1" max="50" id="numE" class="form-control rounded-pill text-center" required>
     </form>
-   
+    <button id="send" class="btn btn-success d-none my-2">Send</button>
     
-    <p id="result" class="d-none">hai indovinato </p>
-    <button id="reset" class=" btn btn-danger d-none">RESTART GAME</button>
+    
+    <p id="result" class="d-none"></p>
+    <button id="reset" type="reset" class=" btn btn-danger d-none">RESTART GAME</button>
   </div>
 
 
