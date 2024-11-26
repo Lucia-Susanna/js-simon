@@ -4,7 +4,7 @@ const randomNumbers = document.getElementById('random-numbers')
 const userAnswer = document.getElementById('answer')
 const send = document.getElementById('send')
 const getResult = document.getElementById('result')
-
+const reset = document.getElementById('reset')
 
 
 let counter = 10
@@ -18,7 +18,8 @@ let userNumbers = [];
 let rightAnswers = [];
 
 start.addEventListener('click',() =>{
-  
+   start.classList.add('d-none')
+   timer.classList.remove('d-none')
   // 1. creo il conto alla rovescia
   const interval = setInterval (()=>{
    // a ogni intervallo il mio counter si decrementa  
@@ -27,13 +28,13 @@ start.addEventListener('click',() =>{
    // il  timer si deve fermare allo 0 e i numeri devono scomparire
    if(counter===0){
     clearInterval(interval)
-
-    randomNumbers.classList.add('hide')
-    userAnswer.classList.remove('hide')
+    timer.classList.add('d-none')
+    randomNumbers.classList.add('d-none')
+    userAnswer.classList.remove('d-none')
     
    }
   
-  }, 10)
+  }, 1000)
 
   // 2. genero 5 numeri casuali da 1 a 50
   
@@ -42,8 +43,7 @@ start.addEventListener('click',() =>{
    randomNumbers.innerHTML = pcNumbers.join(' ');
   }
 
-  start.disabled = true;
-
+ 
 })
 
 send.addEventListener('click', () =>{
@@ -65,9 +65,10 @@ for (let i = 0; i<=5; i++){
   
 }
 
-userAnswer.classList.add('hide')
+userAnswer.classList.add('d-none')
 
-getResult.classList.remove('hide')
+getResult.classList.remove('d-none')
+reset.classList.remove('d-none')
 getResult.innerHTML+= `${counterRightAnswers} numeri!`
     
 })
